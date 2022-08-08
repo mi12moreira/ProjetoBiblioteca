@@ -1,5 +1,7 @@
 using Biblioteca.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Biblioteca.Controllers
 {
@@ -7,8 +9,14 @@ namespace Biblioteca.Controllers
     {
         public IActionResult Cadastro()
         {
-            Autenticacao.CheckLogin(this);
+           if (HttpContext.Session.GetInt32("id") == 0 || HttpContext.Session.GetInt32("id") == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+           else
+           {
             return View();
+           }
         }
 
         [HttpPost]
@@ -16,7 +24,7 @@ namespace Biblioteca.Controllers
         {
             LivroService livroService = new LivroService();
 
-            if(l.Id == 0)
+            if (l.Id == 0)
             {
                 livroService.Inserir(l);
             }
@@ -30,16 +38,25 @@ namespace Biblioteca.Controllers
 
         public IActionResult Listagem(string tipoFiltro, string filtro)
         {
-            Autenticacao.CheckLogin(this);
-            FiltrosLivros objFiltro = null;
-            if(!string.IsNullOrEmpty(filtro))
+          if (HttpContext.Session.GetInt32("id") == 0 || HttpContext.Session.GetInt32("id") == null)
             {
-                objFiltro = new FiltrosLivros();
-                objFiltro.Filtro = filtro;
-                objFiltro.TipoFiltro = tipoFiltro;
+                return RedirectToAction("Login", "Home");
             }
-            LivroService livroService = new LivroService();
-            return View(livroService.ListarTodos(objFiltro));
+
+        else
+            {
+                System.Console.WriteLine("Tipo Filtro " + tipoFiltro);
+                FiltrosLivros objFiltro = null;
+                if (!string.IsNullOrEmpty(filtro))
+                {
+                    objFiltro = new FiltrosLivros();
+                    objFiltro.Filtro = filtro;
+                    objFiltro.TipoFiltro = tipoFiltro;
+                }
+
+                LivroService livroService = new LivroService();
+                return View(livroService.ListarTodos(objFiltro));
+            }
         }
 
         public IActionResult Edicao(int id)

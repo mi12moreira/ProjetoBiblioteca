@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
 namespace Biblioteca.Models
 {
@@ -22,6 +23,7 @@ namespace Biblioteca.Models
                 Livro livro = bc.Livros.Find(l.Id);
                 livro.Autor = l.Autor;
                 livro.Titulo = l.Titulo;
+                livro.Ano = l.Ano;
 
                 bc.SaveChanges();
             }
@@ -54,6 +56,8 @@ namespace Biblioteca.Models
                 else
                 {
                     // caso filtro não tenha sido informado
+                    query = bc.Livros;
+                    Console.WriteLine("Escreva o título");
                     query = bc.Livros;
                 }
                 

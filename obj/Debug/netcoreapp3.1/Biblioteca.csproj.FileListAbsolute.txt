@@ -51,3 +51,6 @@ C:\Users\Admin\Desktop\Miriã Moreira T.I\Biblioteca\obj\Debug\netcoreapp3.1\sta
 C:\Users\Admin\Desktop\Miriã Moreira T.I\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.dll
 C:\Users\Admin\Desktop\Miriã Moreira T.I\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.pdb
 C:\Users\Admin\Desktop\Miriã Moreira T.I\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Miriã Moreira T.I\Biblioteca\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\Cadastro.cshtml.g.cs
+C:\Users\Admin\Desktop\Miriã Moreira T.I\Biblioteca\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\Editar.cshtml.g.cs
+C:\Users\Admin\Desktop\Miriã Moreira T.I\Biblioteca\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\Listar.cshtml.g.cs

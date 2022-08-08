@@ -1,0 +1,24 @@
+@model Usuarios
+@{
+    ViewData["Title"] = "Edição de Usuario";
+}
+
+<h1 class="row justify-content-md-center">Cadastro de Usuarios</h1>
+<div class="row justify-content-md-center">
+    <form asp-action="Editar" method="POST" class="col-md-4">
+        <fieldset>
+            <legend>Adicionar</legend>
+            <input type="hidden" asp-for="id">
+            <div class="form-group">
+                <label asp-for="login">Login</label>
+                <input asp-for="login" class="form-control" required/>
+            </div>
+            <label asp-for="privilegio">Privilégio</label>
+                <select asp-for="privilegio" class="form-control" required>
+                    <option value="adm">Administrador</option>
+                    <option value="no">Outro Usuario</option>
+                </select>
+        </fieldset>
+        <input type="submit" value="Salvar" class="btn btn-primary"/>
+    </form>
+</div> 

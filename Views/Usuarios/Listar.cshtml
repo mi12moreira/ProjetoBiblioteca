@@ -1,0 +1,25 @@
+@model List<Usuarios>
+
+<h3>Todos os Usuarios</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Função</th>
+            <th>Manutenção</th>
+        </tr>
+    </thead>
+
+    @foreach (Usuarios usr in Model)
+    {
+        <tr>
+            <td>@usr.login</td>
+            <td>@usr.privilegio</td>
+            <td>
+                <a href="/Usuarios/Editar?Id=@usr.id">Editar</a>
+                <a href="/Usuarios/Excluir?Id=@usr.id">Excluir</a>
+            </td>
+        </tr>
+    }
+</table> 
